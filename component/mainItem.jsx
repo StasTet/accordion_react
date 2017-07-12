@@ -1,51 +1,58 @@
 import React from 'react';
-import axios from 'axios';
-
-import SubItem from './subItem.jsx'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
+import SubItem from './subItem.jsx';
+import * as subItemsAction from './store/actions/subItemsAction.js'
 
 class MainItem extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            // isToggle: false,
-            item: []
-        };
-    }
 
-    componentWillMount(){
-        const urlJson = '../src/data.json';
-
-        axios
-            .get(urlJson)
-            .then(({data}) => {
-                this.setState({
-                    item: data
-                });
-            })
-            .catch(console.error)
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(event) {
-        // this.setState(prevState => ({
-        //     isToggle: !prevState.isToggle
-        // }));
-        console.log(event)
+        if (this.props.subItems.visible) {
+            console.log(this.props.data.id, 'id')
+            this.hide(this.props.data.id);
+        } else {
+            this.show(this.props.data.id);
+        }
     }
 
+    show(id) {
+        this.props.subItemsAction.setVisible('OPEN', id);
+    }
+
+    hide(id) {
+        this.props.subItemsAction.setVisible('CLOSE', id);
+    }
+ 
     render() {
+        // console.log(this.props.data.id)
+        const { visible } = this.props.subItemsReducers;
+        const { setVisible } = this.props.subItemsAction;
+
         return (
-            <div>
-                {this.state.item.map((item, index) => {
-                    return (
-                        <div key={index}>
-                            <div className="main-item">{item.title}</div>
-                            <SubItem data={item.subitems} />
-                        </div>
-                    )
-                })}
+            <div onClick={this.handleClick}>
+                <div className="main-item">{this.props.data.title}</div>
+                <SubItem data={this.props.data.subitems} style={visible}/>
             </div>
         )
     }
 }
 
-export default MainItem;
+
+const mapStateToProps = (state) => {
+    return {
+        subItems: state.subItems
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        subItemsAction: bindActionCreators(subItemsAction, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainItem);

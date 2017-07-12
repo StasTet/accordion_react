@@ -15,13 +15,26 @@
     cursor: pointer;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
 .subitems {
     list-style-type: none;
     padding: 5px 10px;
     margin: 0px;
+}
+
+.subitems.hidden {
     display: none;
 }
 
+.subitems.show {
+    display: block;
+    animation: fadeIn 0.5s;
+
+}
 .subitems li {
     border-bottom: 1px solid #ccc;
     margin: 5px;
