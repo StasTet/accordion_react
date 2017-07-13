@@ -1,8 +1,8 @@
 import React from 'react';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux';
 import SubItem from './subItem.jsx';
-import * as subItemsAction from './store/actions/subItemsAction.js'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as subItemsAction from '../actions/subItemsAction.js';
 
 class MainItem extends React.Component {
     constructor(props) {
@@ -12,8 +12,7 @@ class MainItem extends React.Component {
     }
 
     handleClick(event) {
-        if (this.props.subItems.visible) {
-            console.log(this.props.data.id, 'id')
+        if (this.props.data.visible) {
             this.hide(this.props.data.id);
         } else {
             this.show(this.props.data.id);
@@ -21,6 +20,7 @@ class MainItem extends React.Component {
     }
 
     show(id) {
+        console.log(this.props.data)
         this.props.subItemsAction.setVisible('OPEN', id);
     }
 
@@ -29,9 +29,7 @@ class MainItem extends React.Component {
     }
  
     render() {
-        // console.log(this.props.data.id)
-        const { visible } = this.props.subItemsReducers;
-        const { setVisible } = this.props.subItemsAction;
+        const visible = this.props.data.visible;
 
         return (
             <div onClick={this.handleClick}>
@@ -42,10 +40,9 @@ class MainItem extends React.Component {
     }
 }
 
-
 const mapStateToProps = (state) => {
     return {
-        subItems: state.subItems
+        stateApp: state
     }
 }
 
