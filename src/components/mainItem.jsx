@@ -20,7 +20,6 @@ class MainItem extends React.Component {
     }
 
     show(id) {
-        console.log(this.props.data)
         this.props.subItemsAction.setVisible('OPEN', id);
     }
 

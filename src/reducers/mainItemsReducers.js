@@ -13,7 +13,6 @@ export default function reducer(state = initialState, action) {
       return { loading: false, data: [], errors: action.err };
 
     case 'OPEN':
-      console.log(state.data)
       return {
                 loading: false,
                 data: state.data.map((item, index) => {
