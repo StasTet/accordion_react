@@ -9,6 +9,8 @@ export const getData = (urlJson) => {
     return (dispatch) => {
         dispatch({
             type: LOAD_DATA_REQUESTED,
+            data: [],
+            errors: null
         });
 
         axios
@@ -23,10 +25,9 @@ export const getData = (urlJson) => {
             .catch((err) => {
                 dispatch({
                     type: LOAD_DATA_FAIL,
-                    data: null,
-                    errors: err.status
+                    data: [],
+                    errors: `${err}`
                 })
             })
     }
-        
 }

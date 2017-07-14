@@ -1,13 +1,11 @@
 import React from 'react';
-import * as mainItemsAction from '../actions/mainItemsAction.js'
 import MainItem from './mainItem.jsx';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import _ from 'lodash';
+import * as mainItemsAction from '../actions/mainItemsAction.js'
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.loadData();
@@ -19,26 +17,23 @@ class App extends React.Component {
     }
 
     render() {
-        const { data } = this.props.stateApp;
+        const { data } = this.props.dataState;
 
         return (
             <div>
                 {
                     data.map((item, index) => {
-                        item.id = index;
-                        item.visible = false;
-                        return <MainItem data={item} key={index}/>
+                        return <MainItem data={item} key={_.uniqueId()} />
                     })
                 }
             </div>
         )
-        
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        stateApp: state.items
+        dataState: state.data
     }
 }
 
