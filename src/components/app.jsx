@@ -3,7 +3,7 @@ import MainItem from './mainItem.jsx';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import * as mainItemsAction from '../actions/mainItemsAction.js'
+import * as mainItemsAction from '../actions/mainItemsAction.js';
 
 class App extends React.Component {
 

@@ -3,7 +3,7 @@ import {
             LOAD_DATA_REQUESTED,
             LOAD_DATA_OK,
             LOAD_DATA_FAIL
-        } from '../constants'
+        } from '../constants';
 
 export const getData = (urlJson) => {
     return (dispatch) => {
