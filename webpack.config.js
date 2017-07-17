@@ -1,4 +1,4 @@
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -6,11 +6,18 @@ module.exports = {
         path.join(__dirname, 'src/index.js')
     ],
     output: {
-        filename: 'bundle.js',
         path: path.resolve(__dirname, 'build'),
+        filename: 'bundle.js'
     },
+    plugins: [
+        new ExtractTextPlugin({
+            filename: 'bundle.css',
+            disable: false,
+            allChunks: true
+        })
+    ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
@@ -18,18 +25,17 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                // loader: ExtractTextPlugin.extract('css-loader', 'sass-loader')
-                use: [{
-                        loader: "style-loader" // creates style nodes from JS strings
-                    }, {
-                        loader: "css-loader" // translates CSS into CommonJS
-                    }, {
-                        loader: "sass-loader" // compiles Sass to CSS
-                    }]
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader','sass-loader'],
+                    publicPath: '/build'
+                })
+            },
+            {
+                test: /\.(png|jpg|jpeg|svg)$/,
+                use: 'file-loader'
             }
         ]
     },
-    // plugins: [
-    //     new ExtractTextPlugin('../build/bundle.css')
-    // ]
+
 };

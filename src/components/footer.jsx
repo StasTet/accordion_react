@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../images/logo.png'; //file-loader!
 
 export default class Footer extends Component {
     render() {
@@ -7,7 +8,7 @@ export default class Footer extends Component {
             <div className="footer">
                 <div className="footer__logo logo">
                     <Link to="/" className="logo__link">
-                        <img src='/images/logo.png' className="logo__image" />
+                         <img src={logo} className="logo__image" /> 
                     </Link>
                 </div>
 
