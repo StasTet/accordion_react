@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SubItem from './subItem.jsx';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as subItemsAction from '../actions/subItemsAction.js';
-import { OPEN, CLOSE } from '../constants';
+import * as subItemsAction from '../../actions/subItemsAction.js';
+import { OPEN, CLOSE } from '../../constants';
 
-class MainItem extends React.Component {
+class MainItem extends Component {
     constructor(props) {
         super(props);
 
@@ -13,13 +13,9 @@ class MainItem extends React.Component {
     }
 
     handleClick(event) {
-        let id = this.props.data.id
+        const id = this.props.data.id
 
-        if (this.props.data.visible) {
-            this.hide(id);
-        } else {
-            this.show(id);
-        }
+        this.props.data.visible ? this.hide(id) : this.show(id);
     }
 
     show(id) {

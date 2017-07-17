@@ -1,27 +1,27 @@
 [
     {
-        "title": "One main item",
+        "title": "Main",
         "subitems": [
             {
-                "title": "One item section",
-                "url": "#"
+                "title": "Main",
+                "url": "/"
             },
             {
-                "title": "One item section",
-                "url": "#"
+                "title": "About",
+                "url": "/about"
             },
             {
-                "title": "One item section",
-                "url": "#"
+                "title": "Contacts",
+                "url": "/contacts"
             }
         ]
     },
     {
-        "title": "Two main item",
+        "title": "Catalog",
         "subitems": [
             {
-                "title": "Two item section",
-                "url": "#"
+                "title": "Lego",
+                "url": "/lego"
             },
             {
                 "title": "Two item section",
