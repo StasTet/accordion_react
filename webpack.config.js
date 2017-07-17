@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -9,7 +10,20 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js'
     },
+    devServer: {
+        contentBase: path.join(__dirname, "/"),
+        compress: true,
+        stats: "errors-only"
+    },
     plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Test React App',
+            // minify: {
+            //     collapseWhitespace: true
+            // },
+            hash: true,
+            template: './src/index.html', // Load a custom template (ejs by default see the FAQ for details)
+        }),
         new ExtractTextPlugin({
             filename: 'bundle.css',
             disable: false,
