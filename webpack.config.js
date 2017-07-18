@@ -1,5 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
 module.exports = {
@@ -28,7 +29,11 @@ module.exports = {
             filename: 'bundle.css',
             disable: false,
             allChunks: true
-        })
+        }),
+        new BundleAnalyzerPlugin({ // Анализ сборки вебпака, по умолчанию localhost:/8888
+            analyzerMode: 'disable', // выключено
+            openAnalyzer: false
+        }) 
     ],
     module: {
         rules: [
