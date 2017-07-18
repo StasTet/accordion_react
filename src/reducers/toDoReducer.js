@@ -10,10 +10,11 @@ export default function reducer(state = [], action) {
         case DEL_TODO:
 
             const elIndex = _.findIndex(state, function(obj) { return obj.id == action.payload})
-            state.splice(elIndex, 1);
-            var newState = _.clone(state);
 
-            return newState;
+            return [
+                ...state.slice(0, elIndex),
+                ...state.slice(elIndex + 1)
+            ]
             
         default:
             return state;
