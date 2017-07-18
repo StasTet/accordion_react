@@ -13,6 +13,7 @@ class App extends Component {
 
     loadData() {
         const urlJson = '../../../files/data.json';
+        
         this.props.mainItemsAction.getData(urlJson);
     }
 

@@ -32,9 +32,16 @@ module.exports = {
     ],
     module: {
         rules: [
+            // проверка ESLint при каждой сборке
+            { 
+                enforce: "pre",
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader"
+            },
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules/,
                 use: 'babel-loader'
             },
             {

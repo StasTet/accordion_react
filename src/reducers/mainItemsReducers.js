@@ -55,6 +55,7 @@ export default function reducer(state = initialState, action) {
                 })
 
                 const item = Object.assign(state.data[currentIndex]);
+                
                 item.visible = true;
 
                 const items = state.data.map((dataItem) => {
@@ -71,6 +72,7 @@ export default function reducer(state = initialState, action) {
                 const currentIndex = _.findIndex(state.data, (obj) => obj.id == action.payload);
 
                 const item = Object.assign(state.data[currentIndex]);
+                
                 item.visible = false;
 
                 const items = state.data.map((dataItem) => {
