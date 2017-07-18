@@ -38,7 +38,7 @@ class ToDo extends Component {
                                 return (
                                     <li key={item.id} className="item__list">
                                         <span className="item__text">{item.text}</span>
-                                        <div onClick={() => this.delTodo(item.id)} className="item__delete"></div>
+                                        <div onClick={ () => this.delTodo(item.id) } className="item__delete"></div>
                                     </li>
                                 )
                             })

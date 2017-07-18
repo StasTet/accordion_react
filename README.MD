@@ -1,4 +1,4 @@
-# Simple Accordion (React + Redux)
+# Simple test site (React + Redux)
 
 ### Installation
 
