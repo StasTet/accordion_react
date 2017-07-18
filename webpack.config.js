@@ -10,21 +10,21 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js'
     },
-    devServer: {
+    devServer: { // настройки webpack-dev-server
         contentBase: path.join(__dirname, "/"),
         compress: true,
         stats: "errors-only"
     },
     plugins: [
-        new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({ // плагин для  генерацияя шаблона в /build/
             title: 'Test React App',
             // minify: {
             //     collapseWhitespace: true
             // },
             hash: true,
-            template: './src/index.html', // Load a custom template (ejs by default see the FAQ for details)
+            template: './src/index.html',
         }),
-        new ExtractTextPlugin({
+        new ExtractTextPlugin({ // плагин для генерации отдельного .css файла в /build/
             filename: 'bundle.css',
             disable: false,
             allChunks: true
@@ -35,7 +35,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                loaders: 'babel-loader'
+                use: 'babel-loader'
             },
             {
                 test: /\.scss$/,
@@ -46,8 +46,11 @@ module.exports = {
                 })
             },
             {
-                test: /\.(png|jpg|jpeg|svg)$/,
-                use: 'file-loader'
+                test: /\.(png|gif|jpe?g|svg)$/,
+                use: [
+                    'file-loader?name=[name].[ext]&outputPath=images/', // размещение изображений в /build/images
+                    'image-webpack-loader' // оптимизация изображений
+                ]
             }
         ]
     },
