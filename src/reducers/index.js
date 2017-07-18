@@ -1,4 +1,8 @@
-import { combineReducers } from 'redux'
-import reducer from './mainItemsReducers.js'
+import { combineReducers } from 'redux';
+import mainItemsReducers from './mainItemsReducers.js';
+import toDoReducer from './toDoReducer.js';
 
-export default combineReducers( { data : reducer } )
+export default combineReducers({ 
+    data : mainItemsReducers,
+    todo : toDoReducer
+})

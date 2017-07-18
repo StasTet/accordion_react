@@ -20,12 +20,12 @@
         "title": "Catalog",
         "subitems": [
             {
-                "title": "Lego",
-                "url": "/lego"
+                "title": "ToDo",
+                "url": "/todo"
             },
             {
-                "title": "Two item section",
-                "url": "#"
+                "title": "Page not found",
+                "url": "/notfound"
             },
             {
                 "title": "Two item section",

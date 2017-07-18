@@ -104,3 +104,57 @@ $test: 960;
 .subitem__item:hover .item__link {
     color: red;
 }
+
+.todo__inner {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.todo__panel {
+    display: flex;
+    align-items: center;
+}
+
+.panel__input {
+    width: 80%;
+    margin: 5px;
+}
+
+.panel__buttont {
+    background-image: url(/images/add-icon.png);
+    width: 26px;
+    height: 26px;
+    background-size: 26px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.todo__container {
+    margin: 0px;
+    padding: 0px;
+}
+
+.item__list {
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+    border-bottom: 1px solid #ccc;
+    margin: 5px;
+    background-color: #fff;
+}
+
+.item__text {
+    width: 80%;
+    font-size: 16px;
+    padding: 0 10px;
+    word-wrap: break-word;
+}
+
+.item__delete {
+    background-image: url(/images/delete-icon.png);
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    margin: 0 15px;
+    cursor: pointer;
+}
