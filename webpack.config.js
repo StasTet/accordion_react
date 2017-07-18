@@ -11,9 +11,9 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: { // настройки webpack-dev-server
-        contentBase: path.join(__dirname, "/"),
+        contentBase: path.join(__dirname, '/'),
         compress: true,
-        stats: "errors-only"
+        stats: 'errors-only'
     },
     plugins: [
         new HtmlWebpackPlugin({ // плагин для  генерацияя шаблона в /build/
@@ -34,10 +34,10 @@ module.exports = {
         rules: [
             // проверка ESLint при каждой сборке
             { 
-                enforce: "pre",
+                enforce: 'pre',
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: "eslint-loader"
+                loader: 'eslint-loader'
             },
             {
                 test: /\.jsx?$/,
