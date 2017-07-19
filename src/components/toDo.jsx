@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
-import * as toDoActions from '../actions/toDoActions.js';
+import * as toDoActions from '../actions/todo/toDoActions.js';
 import { ADD_TODO, DEL_TODO } from '../constants';
 
 class ToDo extends Component {
@@ -52,7 +52,7 @@ class ToDo extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        todo: state.todo
+        todo: state.toDo
     }
 }
 

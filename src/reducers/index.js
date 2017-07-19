@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import mainItemsReducers from './mainItemsReducers.js';
+import leftMenuReducers from './leftMenuReducers.js';
 import toDoReducer from './toDoReducer.js';
+import sliderReducer from './sliderReducer.js';
 
 export default combineReducers({ 
-    data : mainItemsReducers,
-    todo : toDoReducer
+    leftMenu : leftMenuReducers,
+    toDo : toDoReducer,
+    slider : sliderReducer
 })

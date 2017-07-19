@@ -3,7 +3,7 @@ import MainItem from './mainItem.jsx';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import * as mainItemsAction from '../../actions/mainItemsAction.js';
+import * as getDataAction from '../../actions/left-menu/getDataAction.js';
 
 class App extends Component {
 
@@ -12,9 +12,9 @@ class App extends Component {
     }
 
     loadData() {
-        const urlJson = '../../../files/data.json';
+        const urlJson = '../../../files/left-menu.json';
         
-        this.props.mainItemsAction.getData(urlJson);
+        this.props.getDataAction.getData(urlJson);
     }
 
     render() {
@@ -36,13 +36,13 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        dataState: state.data
+        dataState: state.leftMenu
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        mainItemsAction: bindActionCreators(mainItemsAction, dispatch)
+        getDataAction: bindActionCreators(getDataAction, dispatch)
     }
 }
 

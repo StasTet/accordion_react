@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SubItem from './subItem.jsx';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as subItemsAction from '../../actions/subItemsAction.js';
+import * as subItemsAction from '../../actions/left-menu/subItemsAction.js';
 import { OPEN, CLOSE } from '../../constants';
 
 class MainItem extends Component {
@@ -41,7 +41,7 @@ class MainItem extends Component {
 
 const mapStateToProps = (state) => {
     return { 
-        dataState: state.data
+        dataState: state.leftMenu
     }
 }
 
